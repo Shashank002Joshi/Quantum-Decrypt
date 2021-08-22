@@ -4,12 +4,6 @@ import random
 from random import randint
 import rsa
 
-def mod_inverse(a, m):
-    for x in range(1, m):
-        if (a * x) % m == 1:
-            return x
-    return -1
-
 def isprime(n):
     if n < 2:
         return False
@@ -20,6 +14,12 @@ def isprime(n):
             if n % i == 0:
                 return False
     return True
+
+def mod_inverse(a, m):
+    for x in range(1, m):
+        if (a * x) % m == 1:
+            return x
+    return -1
 
 def generate_keypair(keysize):
     p = randint(1, 1000)
